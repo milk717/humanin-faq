@@ -14,7 +14,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -32,8 +32,8 @@ jobs:
 
       - name: Commit and push changes
         run: |
-          git config --global user.name 'milk717'
-          git config --global user.email 'robolindasoo@gmail.com'
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add faq/*.json
           git commit -m '🚀 faq update'
           git push
