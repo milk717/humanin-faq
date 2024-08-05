@@ -19,17 +19,18 @@ const fetchAndConvert = async () => {
     }
 
     const headers = rows[0];
-    const data = rows.slice(1).map(row =>
+    const data = rows.slice(1).map((row, rowIndex) =>
         headers.reduce((obj, header, index) => {
             obj[header] = row[index];
             return obj;
-        }, {})
+        }, { key: `row_${rowIndex + 1}` })
     );
 
     const groupedData = data.reduce((acc, row) => {
         const screen = row['해당 화면'];
         acc[screen] = acc[screen] || [];
         acc[screen].push({
+            key: row.key,
             question: row.question,
             answer: row.answer
         });
