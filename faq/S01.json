@@ -1,13 +1,16 @@
 [
   {
+    "key": "row_1",
     "question": "LED에 불이 들어오지 않아요",
     "answer": ""
   },
   {
+    "key": "row_2",
     "question": "센서가 잘 붙지 않아요",
     "answer": ""
   },
   {
+    "key": "row_12",
     "question": "센서의 색을 맞춰서 붙여야 하나요?",
     "answer": ""
   }
