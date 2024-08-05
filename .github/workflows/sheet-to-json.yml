@@ -29,3 +29,13 @@ jobs:
           SHEET_ID: ${{ secrets.SHEET_ID }}
           API_KEY: ${{ secrets.API_KEY }}
         run: node script.js
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'milk717'
+          git config --global user.email 'robolindasoo@gmail.com'
+          git add faq/*.json
+          git commit -m '🚀 faq update'
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
