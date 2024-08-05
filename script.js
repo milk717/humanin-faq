@@ -5,7 +5,7 @@ const path = require('path');
 const SHEET_ID = process.env.SHEET_ID;
 const API_KEY = process.env.API_KEY;
 
-async function fetchAndConvert() {
+const fetchAndConvert = async () => {
     const sheets = google.sheets({ version: 'v4', auth: API_KEY });
     const response = await sheets.spreadsheets.values.get({
         spreadsheetId: SHEET_ID,
@@ -19,31 +19,33 @@ async function fetchAndConvert() {
     }
 
     const headers = rows[0];
-    const data = rows.slice(1).map(row => {
-        let obj = {};
-        headers.forEach((header, index) => {
+    const data = rows.slice(1).map(row =>
+        headers.reduce((obj, header, index) => {
             obj[header] = row[index];
-        });
-        return obj;
-    });
+            return obj;
+        }, {})
+    );
 
     const groupedData = data.reduce((acc, row) => {
         const screen = row['해당 화면'];
-        if (!acc[screen]) acc[screen] = [];
-        acc[screen].push(row);
+        acc[screen] = acc[screen] || [];
+        acc[screen].push({
+            question: row.question,
+            answer: row.answer
+        });
         return acc;
     }, {});
 
     fs.mkdirSync('faq', { recursive: true });
-    for (const [screen, records] of Object.entries(groupedData)) {
+    Object.entries(groupedData).forEach(([screen, records]) => {
         fs.writeFileSync(
-            path.join('faq', `${screen.split('_').at(0)}.json`),
+            path.join('faq', `${screen.split('_')[0]}.json`),
             JSON.stringify(records, null, 2),
             'utf8'
         );
-    }
+    });
 
     console.log('JSON files created successfully');
-}
+};
 
 fetchAndConvert().catch(console.error);
