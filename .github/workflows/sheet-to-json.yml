@@ -38,13 +38,23 @@ jobs:
           set -e
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add faq/*.json
-          git add description/*.json
+          
+          # Stage changes
+          git add faq/*.json description/*.json
+
+          # Check if there are any changes
           if git diff --staged --quiet; then
             echo "No changes to commit"
             exit 0
           fi
+          
+          # Commit changes
           git commit -m '🚀 faq update'
+
+          # Pull latest changes and rebase
+          git pull --rebase origin main
+
+          # Push changes to the repository
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
