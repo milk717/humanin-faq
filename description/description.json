@@ -13,25 +13,25 @@
   },
   "R01": {
     "title": "1. Receiver 접속하기",
-    "description": "sender의 전원이 켜져있는지 확인해주세요",
+    "description": "1. 와이파이 설정 페이지를 열어주세요.\n2. G-BRAIN_[시리얼 넘버]에 해당하는 네트워크에 연결합니다\n3. “인터넷 연결 확실치 않음\" 경고창이 뜨면, “이번만 연결\" 혹은 “항상 연결\" 버튼을 눌러주세요.",
     "youtube_video_url": null,
     "key": "row_3"
   },
   "R02": {
     "title": "2. Receiver와 연결할 WIFI 네트워크 선택",
-    "description": "1. 와이파이 설정 페이지를 열어주세요.\\n\n2. G-BRAIN_[시리얼 넘버]에 해당하는 네트워크에 연결합니다\\n\n3. “인터넷 연결 확실치 않음\" 경고창이 뜨면, “이번만 연결\" 혹은 “항상 연결\" 버튼을 눌러주세요.",
+    "description": "• 와이파이 목록에서 Receiver와 연결할 와이파이를 선택해주세요.\n• 2.4GHz의 인터넷 연결이 가능한 와이파이를 선택해주세요.",
     "youtube_video_url": null,
     "key": "row_4"
   },
   "R03": {
     "title": "3. Receiver와 연결할 WIFI 네트워크의 비밀번호 입력",
-    "description": "• 와이파이 목록에서 Receiver와 연결할 와이파이를 선택해주세요.\\n\n• 2.4GHz의 인터넷 연결이 가능한 와이파이를 선택해주세요.",
+    "description": "와이파이 비밀번호와 센더의 이름을 입력한 후 전송 버튼을 눌러주세요.",
     "youtube_video_url": null,
     "key": "row_5"
   },
   "R04": {
     "title": "4. 인터넷이 가능한 WIIF 네트워크에 연결",
-    "description": "와이파이 비밀번호와 센더의 이름을 입력한 후 전송 버튼을 눌러주세요.",
+    "description": "설명",
     "youtube_video_url": null,
     "key": "row_6"
   }
