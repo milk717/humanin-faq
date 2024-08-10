@@ -67,6 +67,7 @@ const processDescriptionData = (data) => {
         acc[screen.split('_')[0]] = {
             title: row.title,
             description: row.description,
+            youtube_video_url: row.youtube_video_url ?? null,
             key: row.key
         };
         return acc;
